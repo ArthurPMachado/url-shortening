@@ -28,6 +28,16 @@
       2,
       "always",
       100
+    ],
+    "footer-min-length": [
+      2,
+      "always",
+      10
+    ],
+    "footer-max-length": [
+      2,
+      "always",
+      100
     ]
   }
 }
