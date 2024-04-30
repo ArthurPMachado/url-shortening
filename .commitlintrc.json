@@ -22,7 +22,7 @@
     "body-min-length": [
       2,
       "always",
-      10
+      50
     ],
     "body-max-length": [
       2,
