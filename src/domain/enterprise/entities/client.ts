@@ -41,6 +41,11 @@ export class Client extends Entity<IClientProps> {
     return this.props.password
   }
 
+  set password(password: string) {
+    this.props.password = password
+    this.touch()
+  }
+
   get createdAt() {
     return this.props.createdAt
   }
