@@ -5,7 +5,7 @@ import {
   ICreateClientUseCaseRequest,
   ICreateClientUseCaseResponse,
 } from './interfaces/ICreateClientUseCase'
-import { ClientAlreadyExistsError } from './errors/client-already-exists'
+import { ClientAlreadyExistsError } from './errors/client-already-exists-error'
 import { Client } from '@/domain/enterprise/entities/client'
 
 export class CreateClientUseCase {
