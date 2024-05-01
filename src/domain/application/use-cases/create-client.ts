@@ -22,7 +22,7 @@ export class CreateClientUseCase {
     const clientWithSameEmail = await this.clientsRepository.findByEmail(email)
 
     if (clientWithSameEmail) {
-      return left(new ClientAlreadyExistsError())
+      return left(new ClientAlreadyExistsError(email))
     }
 
     const hashedPassword = await this.hashGenerator.hash(password)

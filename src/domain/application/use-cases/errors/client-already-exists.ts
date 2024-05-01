@@ -1,5 +1,5 @@
 export class ClientAlreadyExistsError extends Error {
-  constructor() {
-    super('Client already exists')
+  constructor(email: string) {
+    super(`Client with email ${email} already exists`)
   }
 }
