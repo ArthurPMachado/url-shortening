@@ -6,4 +6,4 @@ export const createClientBodySchema = z.object({
   password: z.string(),
 })
 
-export type createClientBodySchema = z.infer<typeof createClientBodySchema>
+export type CreateClientBodySchema = z.infer<typeof createClientBodySchema>
