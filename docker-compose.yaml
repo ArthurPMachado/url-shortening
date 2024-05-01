@@ -1,0 +1,38 @@
+version: '3.7'
+
+services:
+  postgres:
+    container_name: url-shortening-pg
+    image: postgres:16.2-alpine3.19
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: docker
+      POSTGRES_DB: url-shortening
+    networks:
+      - url-shortening-network
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U postgres" ]
+      interval: 3s
+      timeout: 5s
+      retries: 5
+
+  url-shortening-api:
+    container_name: url-shortening-api
+    build:
+      context: .
+    ports:
+      - 3001:3000
+    environment:
+      - DATABASE_URL=postgres://postgres:docker@postgres:5432/url-shortening
+      - API_BASE_URL=http://localhost:3000
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - url-shortening-network
+
+networks:
+  url-shortening-network:
+    driver: bridge
