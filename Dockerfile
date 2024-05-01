@@ -18,7 +18,7 @@ COPY . .
 COPY --from=dependencies /usr/src/app/node_modules ./node_modules
 
 RUN pnpm build
-RUN pnpm prune --prod
+RUN pnpm prune --prod --ignore-scripts
 
 FROM node:20-alpine3.19 AS deploy
 
@@ -35,4 +35,4 @@ RUN pnpm prisma generate
 
 EXPOSE 3000
 
-CMD [ "pnpm", "start" ]
+CMD [ "pnpm", "run", "start:prod"]
