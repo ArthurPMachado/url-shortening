@@ -17,12 +17,12 @@ import { AuthenticationPayloadSchema } from '../schemas/authentication-payload-s
 
 const bodyValidationPipe = new ZodValidationPipe(createShortLinkBodySchema)
 
-@Controller('/links')
+@Controller('/links/create-short-link')
 @Public()
 export class CreateShortLinkController {
   constructor(private createShortLink: CreateShortLinkUseCase) {}
 
-  @Post('/create-short-link')
+  @Post()
   @HttpCode(201)
   async handle(
     @Body(bodyValidationPipe) body: CreateShortLinkBodySchema,
