@@ -5,7 +5,7 @@ import { UniqueEntityID } from '@/core/entities/unique-entity-id'
 
 export class ShortLink extends Entity<IShorLinkProps> {
   static create(
-    props: Optional<IShorLinkProps, 'createdAt' | 'clientId'>,
+    props: Optional<IShorLinkProps, 'createdAt' | 'clientId' | 'updatedAt'>,
     id?: UniqueEntityID,
   ) {
     const shortLink = new ShortLink(
@@ -22,6 +22,10 @@ export class ShortLink extends Entity<IShorLinkProps> {
 
   get clientId() {
     return this.props.clientId
+  }
+
+  set clientId(clientId: UniqueEntityID | null | undefined) {
+    this.clientId = clientId
   }
 
   get code() {
