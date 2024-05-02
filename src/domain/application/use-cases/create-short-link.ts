@@ -18,7 +18,7 @@ export class CreateShortLinkUseCase {
     clientId,
   }: ICreateShortLinkUseCaseRequest): Promise<ICreateShortLinkUseCaseResponse> {
     const shortLink = ShortLink.create({
-      code: `http://localhost/${nanoid(6)}`,
+      code: nanoid(6),
       originalUrl,
     })
 
