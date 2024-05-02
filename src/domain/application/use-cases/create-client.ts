@@ -7,7 +7,9 @@ import {
 } from './interfaces/ICreateClientUseCase'
 import { ClientAlreadyExistsError } from './errors/client-already-exists-error'
 import { Client } from '@/domain/enterprise/entities/client'
+import { Injectable } from '@nestjs/common'
 
+@Injectable()
 export class CreateClientUseCase {
   constructor(
     private clientsRepository: IClientsRepository,

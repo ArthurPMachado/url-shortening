@@ -7,7 +7,9 @@ import {
   IAuthenticateClientUseCaseResponse,
 } from './interfaces/IAuthenticateClientUseCase'
 import { WrongCredentialsError } from './errors/wrong-credentials-error'
+import { Injectable } from '@nestjs/common'
 
+@Injectable()
 export class AuthenticateClientUseCase {
   constructor(
     private clientsRepository: IClientsRepository,
