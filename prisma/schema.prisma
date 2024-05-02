@@ -21,12 +21,13 @@ model Client {
 }
 
 model ShortLinks {
-  id          String    @id @default(uuid())
-  code        String    @unique
-  originalUrl String    @map("original_url")
-  createdAt   DateTime  @default(now()) @map("created_at")
-  updatedAt   DateTime? @updatedAt @map("updated_at")
-  clientId    String?   @map("client_id")
+  id             String    @id @default(uuid())
+  code           String    @unique
+  originalUrl    String    @map("original_url")
+  numberOfAccess Int       @default(0) @map("number_of_access")
+  createdAt      DateTime  @default(now()) @map("created_at")
+  updatedAt      DateTime? @updatedAt @map("updated_at")
+  clientId       String?   @map("client_id")
 
   client Client? @relation(fields: [clientId], references: [id])
 }
