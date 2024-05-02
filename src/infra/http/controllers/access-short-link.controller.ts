@@ -11,12 +11,12 @@ import { AccessShortLinkUseCase } from '@/domain/application/use-cases/access-sh
 import { ResourceNotFoundError } from '@/core/errors/errors/resource-not-found-error'
 import { Response } from 'express'
 
-@Controller('/links/:code')
+@Controller('/links')
 @Public()
-export class CreateShortLinkController {
+export class AccessShortLinkController {
   constructor(private accessShortLink: AccessShortLinkUseCase) {}
 
-  @Get()
+  @Get('/:code')
   async handle(@Param('code') code: string, @Res() response: Response) {
     const result = await this.accessShortLink.execute({
       code,
