@@ -24,7 +24,8 @@ export class PrismaClientMapper {
       name: client.name,
       email: client.email,
       password: client.password,
-      created_at: client.createdAt,
+      createdAt: client.createdAt,
+      updatedAt: client.updatedAt,
     }
 
     return clientPrisma

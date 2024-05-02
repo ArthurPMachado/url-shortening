@@ -17,6 +17,7 @@ WORKDIR /usr/src/app
 COPY . .
 COPY --from=dependencies /usr/src/app/node_modules ./node_modules
 
+RUN pnpm prisma generate
 RUN pnpm build
 RUN pnpm prune --prod --ignore-scripts
 
