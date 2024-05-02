@@ -5,7 +5,9 @@ import {
   authenticationPayloadSchema,
 } from '../http/schemas/authentication-payload-schema'
 import { EnvService } from '../env/env.service'
+import { Injectable } from '@nestjs/common'
 
+@Injectable()
 export class JwtStrategy extends PassportStrategy(Strategy) {
   constructor(env: EnvService) {
     const publicKey = env.get('JWT_PUBLIC_KEY')
