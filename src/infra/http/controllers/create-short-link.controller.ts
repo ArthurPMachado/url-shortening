@@ -38,5 +38,9 @@ export class CreateShortLinkController {
     if (result.isLeft()) {
       throw new InternalServerErrorException()
     }
+
+    return {
+      shortLink: result.value,
+    }
   }
 }
