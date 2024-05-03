@@ -4,7 +4,7 @@ export interface IShorLinkProps {
   clientId: UniqueEntityID
   code: string
   originalUrl: string
-  isDeleted?: boolean | null
+  isDeleted: boolean
   createdAt: Date
   updatedAt?: Date | null
 }

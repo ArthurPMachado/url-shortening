@@ -38,7 +38,7 @@ export class ShortLink extends Entity<IShorLinkProps> {
   }
 
   get isDeleted() {
-    return this.isDeleted
+    return this.props.isDeleted
   }
 
   set isDeleted(isDeleted: boolean) {
