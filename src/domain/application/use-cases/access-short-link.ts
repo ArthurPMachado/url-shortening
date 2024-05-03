@@ -20,7 +20,7 @@ export class AccessShortLinkUseCase {
       return left(new ResourceNotFoundError())
     }
 
-    await this.shortLinkRepository.incrementAccess()
+    await this.shortLinkRepository.incrementAccess(shortLink.id.toString())
 
     return right({
       originalUrl: shortLink.originalUrl,
