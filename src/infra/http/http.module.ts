@@ -11,6 +11,8 @@ import { CreateShortLinkUseCase } from '@/domain/application/use-cases/create-sh
 import { AccessShortLinkController } from './controllers/access-short-link.controller'
 import { FetchShortLinksController } from './controllers/fetch-short-links.controller'
 import { FetchShortLinksUseCase } from '@/domain/application/use-cases/fetch-short-links'
+import { EditShortLinkOriginalUrlController } from './controllers/edit-short-link-original-url.controller'
+import { EditShortLinkOriginalUrlUseCase } from '@/domain/application/use-cases/edit-short-link-original-url'
 
 @Module({
   imports: [DatabaseModule, CryptographyModule],
@@ -20,6 +22,7 @@ import { FetchShortLinksUseCase } from '@/domain/application/use-cases/fetch-sho
     CreateShortLinkController,
     AccessShortLinkController,
     FetchShortLinksController,
+    EditShortLinkOriginalUrlController,
   ],
   providers: [
     CreateClientUseCase,
@@ -27,6 +30,7 @@ import { FetchShortLinksUseCase } from '@/domain/application/use-cases/fetch-sho
     CreateShortLinkUseCase,
     AccessShortLinkUseCase,
     FetchShortLinksUseCase,
+    EditShortLinkOriginalUrlUseCase,
   ],
 })
 export class HttpModule {}
