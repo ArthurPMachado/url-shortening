@@ -4,4 +4,8 @@ export abstract class IShortLinksRepository {
   abstract create(shortLink: ShortLink): Promise<void>
   abstract findByCode(code: string): Promise<ShortLink | null>
   abstract incrementAccess(id: string): Promise<void>
+  abstract findManyByClientId(
+    clientId: string,
+    page: number,
+  ): Promise<ShortLink[]>
 }
