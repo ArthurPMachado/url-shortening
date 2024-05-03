@@ -17,6 +17,6 @@ import { PrismaShortLinksRepository } from './prisma/repositories/prisma-shortLi
       useClass: PrismaShortLinksRepository,
     },
   ],
-  exports: [PrismaService, IClientsRepository],
+  exports: [PrismaService, IClientsRepository, IShortLinksRepository],
 })
 export class DatabaseModule {}

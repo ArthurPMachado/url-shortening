@@ -5,9 +5,9 @@ import {
   ICreateShortLinkUseCaseResponse,
 } from './interfaces/ICreateShortLinkUseCase'
 import { ShortLink } from '@/domain/enterprise/entities/shortLink'
-import { nanoid } from 'nanoid'
 import { UniqueEntityID } from '@/core/entities/unique-entity-id'
 import { right } from '@/core/either'
+import { nanoid } from 'nanoid'
 
 @Injectable()
 export class CreateShortLinkUseCase {
