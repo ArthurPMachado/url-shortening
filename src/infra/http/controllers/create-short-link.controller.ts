@@ -13,6 +13,7 @@ import {
 import { CreateShortLinkUseCase } from '@/domain/application/use-cases/create-short-link'
 import { AuthenticateClient } from '@/infra/auth/authenticate-client.decorator'
 import { AuthenticationPayloadSchema } from '../schemas/authentication-payload-schema'
+import { ShortLinkPresenter } from '../presenters/short-link-presenter'
 
 const bodyValidationPipe = new ZodValidationPipe(createShortLinkBodySchema)
 
@@ -38,7 +39,7 @@ export class CreateShortLinkController {
     }
 
     return {
-      shortLink: result.value,
+      shortLink: ShortLinkPresenter.toHTTP(result.value.shortLink),
     }
   }
 }
