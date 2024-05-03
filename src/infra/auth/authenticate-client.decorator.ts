@@ -5,6 +5,6 @@ export const AuthenticateClient = createParamDecorator(
   (_: never, context: ExecutionContext) => {
     const request = context.switchToHttp().getRequest()
 
-    return request.client as AuthenticationPayloadSchema
+    return request.user as AuthenticationPayloadSchema
   },
 )

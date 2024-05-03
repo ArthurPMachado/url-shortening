@@ -6,7 +6,7 @@ export class PrismaShortLinkMapper {
   static toDomain(raw: PrismaAppShortLink): ShortLink {
     const shortLinkDomain = ShortLink.create(
       {
-        clientId: raw.clientId ? new UniqueEntityID(raw.clientId) : null,
+        clientId: new UniqueEntityID(raw.clientId),
         code: raw.code,
         originalUrl: raw.originalUrl,
         createdAt: raw.createdAt,
@@ -21,6 +21,7 @@ export class PrismaShortLinkMapper {
   static toPrisma(shortLink: ShortLink): Prisma.ShortLinksUncheckedCreateInput {
     const shortLinkPrisma = {
       id: shortLink.id.toString(),
+      clientId: shortLink.clientId.toString(),
       code: shortLink.code,
       originalUrl: shortLink.originalUrl,
       createdAt: shortLink.createdAt,

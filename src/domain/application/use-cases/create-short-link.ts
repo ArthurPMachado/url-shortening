@@ -18,13 +18,10 @@ export class CreateShortLinkUseCase {
     clientId,
   }: ICreateShortLinkUseCaseRequest): Promise<ICreateShortLinkUseCaseResponse> {
     const shortLink = ShortLink.create({
+      clientId: new UniqueEntityID(clientId),
       code: nanoid(6),
       originalUrl,
     })
-
-    if (clientId) {
-      shortLink.clientId = new UniqueEntityID(clientId)
-    }
 
     await this.shortLinkRepository.create(shortLink)
 

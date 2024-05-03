@@ -27,7 +27,9 @@ model ShortLinks {
   numberOfAccess Int       @default(0) @map("number_of_access")
   createdAt      DateTime  @default(now()) @map("created_at")
   updatedAt      DateTime? @updatedAt @map("updated_at")
-  clientId       String?   @map("client_id")
+  clientId       String    @map("client_id")
 
   client Client? @relation(fields: [clientId], references: [id])
+
+  @@map("short_links")
 }

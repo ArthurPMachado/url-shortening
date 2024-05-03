@@ -5,14 +5,13 @@ import { UniqueEntityID } from '@/core/entities/unique-entity-id'
 
 export class ShortLink extends Entity<IShorLinkProps> {
   static create(
-    props: Optional<IShorLinkProps, 'createdAt' | 'clientId' | 'updatedAt'>,
+    props: Optional<IShorLinkProps, 'createdAt' | 'updatedAt'>,
     id?: UniqueEntityID,
   ) {
     const shortLink = new ShortLink(
       {
         ...props,
         createdAt: props.createdAt ?? new Date(),
-        clientId: props.clientId ?? null,
       },
       id,
     )
@@ -22,10 +21,6 @@ export class ShortLink extends Entity<IShorLinkProps> {
 
   get clientId() {
     return this.props.clientId
-  }
-
-  set clientId(clientId: UniqueEntityID | null | undefined) {
-    this.clientId = clientId
   }
 
   get code() {

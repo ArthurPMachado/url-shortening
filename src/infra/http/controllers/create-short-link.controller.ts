@@ -5,7 +5,6 @@ import {
   InternalServerErrorException,
   Post,
 } from '@nestjs/common'
-import { Public } from '@/infra/auth/public'
 import { ZodValidationPipe } from '../pipe/zod-valitation-pipe.pipe'
 import {
   CreateShortLinkBodySchema,
@@ -18,7 +17,6 @@ import { AuthenticationPayloadSchema } from '../schemas/authentication-payload-s
 const bodyValidationPipe = new ZodValidationPipe(createShortLinkBodySchema)
 
 @Controller('/links/create-short-link')
-@Public()
 export class CreateShortLinkController {
   constructor(private createShortLink: CreateShortLinkUseCase) {}
 
