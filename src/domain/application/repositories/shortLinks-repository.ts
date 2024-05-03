@@ -8,4 +8,7 @@ export abstract class IShortLinksRepository {
     clientId: string,
     page: number,
   ): Promise<ShortLink[]>
+
+  abstract findByClientId(clientId: string): Promise<ShortLink | null>
+  abstract save(shortLink: ShortLink): Promise<void>
 }
