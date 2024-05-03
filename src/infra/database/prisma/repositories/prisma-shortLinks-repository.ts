@@ -57,4 +57,29 @@ export class PrismaShortLinksRepository implements IShortLinksRepository {
 
     return shortLinks.map(PrismaShortLinkMapper.toDomain)
   }
+
+  async findById(id: string): Promise<ShortLink | null> {
+    const shortLink = await this.prisma.shortLinks.findFirst({
+      where: {
+        id,
+      },
+    })
+
+    if (!shortLink) {
+      return null
+    }
+
+    return PrismaShortLinkMapper.toDomain(shortLink)
+  }
+
+  async save(shortLink: ShortLink): Promise<void> {
+    const data = PrismaShortLinkMapper.toPrisma(shortLink)
+
+    await this.prisma.shortLinks.update({
+      where: {
+        id: data.id,
+      },
+      data,
+    })
+  }
 }

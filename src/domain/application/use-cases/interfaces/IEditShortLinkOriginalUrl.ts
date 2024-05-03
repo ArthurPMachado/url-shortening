@@ -3,7 +3,7 @@ import { ResourceNotFoundError } from '@/core/errors/errors/resource-not-found-e
 import { ShortLink } from '@/domain/enterprise/entities/shortLink'
 
 export interface IEditShortLinkOriginalUrlUseCaseRequest {
-  clientId: string
+  shortLinkId: string
   newUrl: string
 }
 

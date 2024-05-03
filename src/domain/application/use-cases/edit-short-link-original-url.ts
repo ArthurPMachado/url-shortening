@@ -12,10 +12,10 @@ export class CreateShortLinkUseCase {
   constructor(private shortLinkRepository: IShortLinksRepository) {}
 
   async execute({
-    clientId,
+    shortLinkId,
     newUrl,
   }: IEditShortLinkOriginalUrlUseCaseRequest): Promise<IEditShortLinkOriginalUrlUseCaseResponse> {
-    const shortLink = await this.shortLinkRepository.findByClientId(clientId)
+    const shortLink = await this.shortLinkRepository.findById(shortLinkId)
 
     if (!shortLink) {
       return left(new ResourceNotFoundError())
