@@ -17,7 +17,7 @@ import { ShortLinkPresenter } from '../presenters/short-link-presenter'
 
 const bodyValidationPipe = new ZodValidationPipe(createShortLinkBodySchema)
 
-@Controller('/links/create-short-link')
+@Controller('/links')
 export class CreateShortLinkController {
   constructor(private createShortLink: CreateShortLinkUseCase) {}
 

@@ -13,6 +13,8 @@ import { FetchShortLinksController } from './controllers/fetch-short-links.contr
 import { FetchShortLinksUseCase } from '@/domain/application/use-cases/fetch-short-links'
 import { EditShortLinkOriginalUrlController } from './controllers/edit-short-link-original-url.controller'
 import { EditShortLinkOriginalUrlUseCase } from '@/domain/application/use-cases/edit-short-link-original-url'
+import { DeleteShortLinkController } from './controllers/delete-short-link.controller'
+import { DeleteShortLinkUseCase } from '@/domain/application/use-cases/delete-short-link'
 
 @Module({
   imports: [DatabaseModule, CryptographyModule],
@@ -23,6 +25,7 @@ import { EditShortLinkOriginalUrlUseCase } from '@/domain/application/use-cases/
     AccessShortLinkController,
     FetchShortLinksController,
     EditShortLinkOriginalUrlController,
+    DeleteShortLinkController,
   ],
   providers: [
     CreateClientUseCase,
@@ -31,6 +34,7 @@ import { EditShortLinkOriginalUrlUseCase } from '@/domain/application/use-cases/
     AccessShortLinkUseCase,
     FetchShortLinksUseCase,
     EditShortLinkOriginalUrlUseCase,
+    DeleteShortLinkUseCase,
   ],
 })
 export class HttpModule {}
