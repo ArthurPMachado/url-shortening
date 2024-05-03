@@ -9,6 +9,8 @@ export class PrismaShortLinkMapper {
         clientId: new UniqueEntityID(raw.clientId),
         code: raw.code,
         originalUrl: raw.originalUrl,
+        numberOfAccess: raw.numberOfAccess,
+        isDeleted: raw.isDeleted,
         createdAt: raw.createdAt,
         updatedAt: raw.updatedAt,
       },
@@ -24,6 +26,8 @@ export class PrismaShortLinkMapper {
       clientId: shortLink.clientId.toString(),
       code: shortLink.code,
       originalUrl: shortLink.originalUrl,
+      numberOfAccess: shortLink.numberOfAccess,
+      isDeleted: shortLink.isDeleted,
       createdAt: shortLink.createdAt,
       updatedAt: shortLink.updatedAt,
     }

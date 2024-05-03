@@ -7,6 +7,7 @@ export class ShortLinkPresenter {
       clientId: shortLink.clientId.toString(),
       code: shortLink.code,
       originalUrl: shortLink.originalUrl,
+      numberOfAccess: shortLink.numberOfAccess,
       isDeleted: shortLink.isDeleted,
       createdAt: shortLink.createdAt,
       updatedAt: shortLink.updatedAt,

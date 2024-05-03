@@ -5,7 +5,10 @@ import { UniqueEntityID } from '@/core/entities/unique-entity-id'
 
 export class ShortLink extends Entity<IShorLinkProps> {
   static create(
-    props: Optional<IShorLinkProps, 'createdAt' | 'updatedAt' | 'isDeleted'>,
+    props: Optional<
+      IShorLinkProps,
+      'createdAt' | 'updatedAt' | 'isDeleted' | 'numberOfAccess'
+    >,
     id?: UniqueEntityID,
   ) {
     const shortLink = new ShortLink(
@@ -13,6 +16,7 @@ export class ShortLink extends Entity<IShorLinkProps> {
         ...props,
         createdAt: props.createdAt ?? new Date(),
         isDeleted: props.isDeleted ?? false,
+        numberOfAccess: props.numberOfAccess ?? 0,
       },
       id,
     )
@@ -35,6 +39,10 @@ export class ShortLink extends Entity<IShorLinkProps> {
   set originalUrl(originalUrl: string) {
     this.props.originalUrl = originalUrl
     this.touch()
+  }
+
+  get numberOfAccess() {
+    return this.props.numberOfAccess
   }
 
   get isDeleted() {
