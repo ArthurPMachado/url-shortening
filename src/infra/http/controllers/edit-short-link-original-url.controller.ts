@@ -6,6 +6,7 @@ import {
   Body,
   NotFoundException,
   BadRequestException,
+  ConflictException,
 } from '@nestjs/common'
 import { ZodValidationPipe } from '../pipe/zod-valitation-pipe.pipe'
 import { EditShortLinkOriginalUrlUseCase } from '@/domain/application/use-cases/edit-short-link-original-url'
@@ -14,6 +15,7 @@ import {
   EditShortLinkOriginalUrl,
 } from '../schemas/edit-short-link-original-url-schema'
 import { ResourceNotFoundError } from '@/core/errors/errors/resource-not-found-error'
+import { ShortLinkDeletedError } from '@/domain/application/use-cases/errors/short-link-deleted-error'
 
 const bodyValidationPipe = new ZodValidationPipe(editShortLinkOriginalUrl)
 
@@ -42,6 +44,8 @@ export class EditShortLinkOriginalUrlController {
       switch (error.constructor) {
         case ResourceNotFoundError:
           throw new NotFoundException(error.message)
+        case ShortLinkDeletedError:
+          throw new ConflictException(error.message)
         default:
           throw new BadRequestException(error.message)
       }

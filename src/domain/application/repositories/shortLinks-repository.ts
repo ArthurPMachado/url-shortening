@@ -11,5 +11,4 @@ export abstract class IShortLinksRepository {
 
   abstract findById(id: string): Promise<ShortLink | null>
   abstract save(shortLink: ShortLink): Promise<void>
-  abstract delete(shortLink: ShortLink): Promise<void>
 }

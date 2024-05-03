@@ -20,7 +20,9 @@ export class DeleteShortLinkUseCase {
       return left(new ResourceNotFoundError())
     }
 
-    await this.shortLinkRepository.delete(shortLink)
+    shortLink.isDeleted = true
+
+    await this.shortLinkRepository.save(shortLink)
 
     return right(null)
   }

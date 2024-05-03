@@ -82,12 +82,4 @@ export class PrismaShortLinksRepository implements IShortLinksRepository {
       data,
     })
   }
-
-  async delete(shortLink: ShortLink): Promise<void> {
-    await this.prisma.shortLinks.delete({
-      where: {
-        id: shortLink.id.toString(),
-      },
-    })
-  }
 }

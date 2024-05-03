@@ -19,8 +19,12 @@ export class FetchShortLinksUseCase {
       page,
     )
 
+    const validShortLinks = shortLinks.filter(
+      (shortLink) => !shortLink.isDeleted,
+    )
+
     return right({
-      shortLinks,
+      shortLinks: validShortLinks,
     })
   }
 }
