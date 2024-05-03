@@ -2,7 +2,7 @@
 
 ## Um app Nest para encurtar urls
 
-## Tecnologias
+## Tecnologias usadas
 
 * NodeJS
 * NestJS
