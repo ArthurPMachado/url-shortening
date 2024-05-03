@@ -1,73 +1,60 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# Url-shortening app
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+## Um app Nest para encurtar urls
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## Tecnologias
 
-## Description
+* NodeJS
+* NestJS
+* Prisma
+* Docker e docker-compose
+* JWT
+* Vitest + Supertest
+* Zod
+* Husky
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+## Começando
+### Pre-requisitos
 
-## Installation
+Para rodar este projeto, é necessário preparar o seu ambiente, isso significa que precisa:
 
-```bash
-$ pnpm install
+1. Instalar NodeJS 20+ - https://nodejs.org/en
+2. Baixar e instalar o Docker - https://www.docker.com/products/docker-desktop/
+
+### Instalando
+**Clonando o Repositório**
+```
+$ git clone git@github.com:ArthurPMachado/url-shortening.git
+
+$ cd url-shortening
+```
+**Instalando dependências**
+
+```
+$ pnpm i
+```
+### Adicionando variáveis de ambiente
+Para este projeto, temos 4 váriaveis de ambiente: Porta, Url do Postgres, chave publica
+e privada para o JWT
+A porta é opcional, sendo neste caso o valor de 3000
+A Url do Postgres já é o mesmo do arquivo .env.example
+Já para as chaves publica e privada, estas precisam ser geradas, neste caso podemos
+usar o site https://cryptotools.net/rsagen. A partir dele, copiamos o valor das
+chaves em suas respectivas variaveis
+
+### Rodando o projeto
+
+**Iniciando docker**
+```
+$ docker-compose up -d
 ```
 
-## Running the app
+Nesta etapa ocorrerá o build da imagem mais enxuta, pode-se levar entre 1 a 2 minutos
+para finalizar. Quando terminar, a aplicação estará pronta para uso
 
-```bash
-# development
-$ pnpm run start
+# Autor
 
-# watch mode
-$ pnpm run start:dev
+👤 **Arthur Machado**
 
-# production mode
-$ pnpm run start:prod
-```
-
-## Test
-
-```bash
-# unit tests
-$ pnpm run test
-
-# e2e tests
-$ pnpm run test:e2e
-
-# test coverage
-$ pnpm run test:cov
-```
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
+- Github: [@Arthur Machado](https://github.com/ArthurPMachado)
+- LinkedIn: [@Arthur Machado](https://linkedin.com/in/arthurpmachado)
