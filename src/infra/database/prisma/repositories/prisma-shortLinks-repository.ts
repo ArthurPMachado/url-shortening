@@ -42,4 +42,19 @@ export class PrismaShortLinksRepository implements IShortLinksRepository {
       },
     })
   }
+
+  async findManyByClientId(
+    clientId: string,
+    page: number,
+  ): Promise<ShortLink[]> {
+    const shortLinks = await this.prisma.shortLinks.findMany({
+      where: {
+        clientId,
+      },
+      take: 20,
+      skip: (page - 1) * 20,
+    })
+
+    return shortLinks.map(PrismaShortLinkMapper.toDomain)
+  }
 }
